@@ -17,6 +17,6 @@ services:
       - key: EMAIL_PASSWORD
         scope: build,runtime
       - key: FRONTEND_URL
-        value: https://habit-tracker-demo.vercel.app
+        scope: build,runtime
       - key: NODE_ENV
         value: production
