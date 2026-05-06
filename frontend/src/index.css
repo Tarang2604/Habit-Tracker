@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition-colors;
+  }
+
+  .btn-danger {
+    @apply px-3 py-1 bg-red-100 text-red-700 rounded border border-red-300 hover:bg-red-200 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-semibold;
+  }
+}
+
+.category-Health { @apply bg-green-100 text-green-800; }
+.category-Work { @apply bg-blue-100 text-blue-800; }
+.category-Learning { @apply bg-pink-100 text-pink-800; }
+.category-Personal { @apply bg-yellow-100 text-yellow-800; }
+.category-Fitness { @apply bg-orange-100 text-orange-800; }
+.category-Other { @apply bg-gray-100 text-gray-800; }
+
+.priority-Low { @apply bg-blue-100 text-blue-800; }
+.priority-Medium { @apply bg-yellow-100 text-yellow-800; }
+.priority-High { @apply bg-red-100 text-red-800; }
+

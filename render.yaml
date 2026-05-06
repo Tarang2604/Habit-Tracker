@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: habit-tracker-api
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGO_URI
+        scope: build,runtime
+      - key: JWT_SECRET
+        scope: build,runtime
+      - key: JWT_EXPIRY
+        value: 7d
+      - key: EMAIL_USER
+        scope: build,runtime
+      - key: EMAIL_PASSWORD
+        scope: build,runtime
+      - key: FRONTEND_URL
+        value: https://habit-tracker-demo.vercel.app
+      - key: NODE_ENV
+        value: production
