@@ -10,16 +10,36 @@ const { startCronJobs } = require('./utils/cronJobs');
 
 dotenv.config();
 
+const requiredEnvVars = ['MONGO_URI', 'JWT_SECRET'];
+const missingEnvVars = requiredEnvVars.filter((key) => !process.env[key]);
+
+if (missingEnvVars.length > 0) {
+  console.error('Missing required environment variables:', missingEnvVars.join(', '));
+  console.error('Set these in Render or your deployment environment before starting the server.');
+  process.exit(1);
+}
+
 const app = express();
 app.use(helmet());
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173', credentials: true }));
+
+const frontendUrl = process.env.FRONTEND_URL;
+if (!frontendUrl) {
+  console.warn('FRONTEND_URL is not set. CORS is configured to allow all origins.');
+}
+
+app.use(
+  cors({
+    origin: frontendUrl || true,
+    credentials: true
+  })
+);
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/habits', habitRoutes);
 app.use('/api/notifications', notificationRoutes);
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/habit-tracker';
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose
   .connect(MONGO_URI)

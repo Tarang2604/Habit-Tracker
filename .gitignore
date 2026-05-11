@@ -4,8 +4,6 @@ npm-debug.log
 yarn-error.log
 
 # Environment variables
-.env
-.env.local
 .env.*.local
 
 # Build outputs
@@ -13,7 +11,6 @@ dist/
 build/
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -30,3 +27,7 @@ logs/
 .cache/
 .next/
 out/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+config.bat

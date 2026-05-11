@@ -18,5 +18,6 @@ services:
         scope: build,runtime
       - key: FRONTEND_URL
         scope: build,runtime
+        value: http://localhost:5173
       - key: NODE_ENV
         value: production
